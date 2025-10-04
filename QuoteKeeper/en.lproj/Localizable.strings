@@ -1,0 +1,116 @@
+/* 
+  Localizable.strings
+  QuoteKeeper
+
+  Created by Рома Котов on 04.10.2025.
+*/
+
+// Navigation
+"Library" = "Library";
+"Favorites" = "Favorites";
+"Random" = "Random";
+"Stats" = "Stats";
+"Profile" = "Profile";
+
+// Main Screen
+"QuoteKeeper" = "QuoteKeeper";
+"Your collection is empty" = "Your collection is empty";
+"Add your first quote to get started" = "Add your first quote to get started";
+"Add Your First Quote" = "Add Your First Quote";
+
+// Profile
+"Statistics" = "Statistics";
+"Tap to set your name" = "Tap to set your name";
+"Tap to set your email" = "Tap to set your email";
+"Edit Profile" = "Edit Profile";
+"ACCOUNT STATS" = "ACCOUNT STATS";
+"Quotes" = "Quotes";
+"Categories" = "Categories";
+"SETTINGS" = "SETTINGS";
+
+// Settings
+"Language" = "Language";
+"Choose interface language" = "Choose interface language";
+"English" = "English";
+"Russian" = "Russian";
+"Theme" = "Theme";
+"Select app appearance" = "Select app appearance";
+"Light" = "Light";
+"Dark" = "Dark";
+"System" = "System";
+"Text Size" = "Text Size";
+"Adjust quote text size" = "Adjust quote text size";
+"Small" = "Small";
+"Standard" = "Standard";
+"Large" = "Large";
+"Reset All Data" = "Reset All Data";
+
+// Add/Edit Quote
+"Add Quote" = "Add Quote";
+"Edit Quote" = "Edit Quote";
+"Quote Text" = "Quote Text";
+"Enter or paste your quote here..." = "Enter or paste your quote here...";
+"Author" = "Author";
+"Author name (optional)" = "Author name (optional)";
+"Category" = "Category";
+"Select category..." = "Select category...";
+"Create new category" = "Create new category";
+"Tags" = "Tags";
+"Add tags..." = "Add tags...";
+"Suggestions:" = "Suggestions:";
+"Mark as favorite" = "Mark as favorite";
+"Save" = "Save";
+"Cancel" = "Cancel";
+
+// Random Quote
+"Daily Inspiration" = "Daily Inspiration";
+"Random Quote" = "Random Quote";
+"Discover wisdom from your collection" = "Discover wisdom from your collection";
+"Favorite" = "Favorite";
+"Share" = "Share";
+"Another" = "Another";
+"Another One" = "Another One";
+"No quotes available" = "No quotes available";
+"Add some quotes to your collection first" = "Add some quotes to your collection first";
+
+// Categories
+"Total Categories" = "Total Categories";
+"Organize your quotes by topics and themes" = "Organize your quotes by topics and themes";
+"Create New Category" = "Create New Category";
+"Add a custom category with icon and color" = "Add a custom category with icon and color";
+"New Category" = "New Category";
+"Category Name" = "Category Name";
+"Icon" = "Icon";
+"Color" = "Color";
+"Preview" = "Preview";
+
+// Stats
+"Total Quotes" = "Total Quotes";
+"This Month" = "This Month";
+"Achievements" = "Achievements";
+"No achievements yet" = "No achievements yet";
+"Start adding quotes to unlock achievements" = "Start adding quotes to unlock achievements";
+"View All Achievements" = "View All Achievements";
+"Category Distribution" = "Category Distribution";
+"No category data yet" = "No category data yet";
+"Add quotes to see category distribution" = "Add quotes to see category distribution";
+
+// Favorites
+"favorites" = "favorites";
+"No favorites yet" = "No favorites yet";
+"Mark quotes as favorites to see them here" = "Mark quotes as favorites to see them here";
+"Browse Library" = "Browse Library";
+"Showing %d favorites" = "Showing %d favorites";
+"Sort" = "Sort";
+"Date Added" = "Date Added";
+"Author" = "Author";
+"Category" = "Category";
+
+// Search
+"Search by quote, author, tags..." = "Search by quote, author, tags...";
+"Search for quotes" = "Search for quotes";
+"Enter text to search by quote content, author, or tags" = "Enter text to search by quote content, author, or tags";
+"No results found" = "No results found";
+"Try different search terms or filters" = "Try different search terms or filters";
+"Show all quotes" = "Show all quotes";
+"results" = "results";

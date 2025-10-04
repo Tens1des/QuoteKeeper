@@ -1,0 +1,116 @@
+/* 
+  Localizable.strings
+  QuoteKeeper
+
+  Created by Рома Котов on 04.10.2025.
+*/
+
+// Navigation
+"Library" = "Библиотека";
+"Favorites" = "Избранное";
+"Random" = "Случайная";
+"Stats" = "Статистика";
+"Profile" = "Профиль";
+
+// Main Screen
+"QuoteKeeper" = "Хранитель Цитат";
+"Your collection is empty" = "Ваша коллекция пуста";
+"Add your first quote to get started" = "Добавьте первую цитату, чтобы начать";
+"Add Your First Quote" = "Добавить первую цитату";
+
+// Profile
+"Statistics" = "Статистика";
+"Tap to set your name" = "Нажмите, чтобы указать имя";
+"Tap to set your email" = "Нажмите, чтобы указать email";
+"Edit Profile" = "Редактировать профиль";
+"ACCOUNT STATS" = "СТАТИСТИКА АККАУНТА";
+"Quotes" = "Цитаты";
+"Categories" = "Категории";
+"SETTINGS" = "НАСТРОЙКИ";
+
+// Settings
+"Language" = "Язык";
+"Choose interface language" = "Выберите язык интерфейса";
+"English" = "Английский";
+"Russian" = "Русский";
+"Theme" = "Тема";
+"Select app appearance" = "Выберите внешний вид приложения";
+"Light" = "Светлая";
+"Dark" = "Тёмная";
+"System" = "Системная";
+"Text Size" = "Размер текста";
+"Adjust quote text size" = "Настройте размер текста цитат";
+"Small" = "Маленький";
+"Standard" = "Стандартный";
+"Large" = "Большой";
+"Reset All Data" = "Сбросить все данные";
+
+// Add/Edit Quote
+"Add Quote" = "Добавить цитату";
+"Edit Quote" = "Редактировать цитату";
+"Quote Text" = "Текст цитаты";
+"Enter or paste your quote here..." = "Введите или вставьте цитату здесь...";
+"Author" = "Автор";
+"Author name (optional)" = "Имя автора (необязательно)";
+"Category" = "Категория";
+"Select category..." = "Выберите категорию...";
+"Create new category" = "Создать новую категорию";
+"Tags" = "Теги";
+"Add tags..." = "Добавить теги...";
+"Suggestions:" = "Предложения:";
+"Mark as favorite" = "Отметить как избранное";
+"Save" = "Сохранить";
+"Cancel" = "Отмена";
+
+// Random Quote
+"Daily Inspiration" = "Ежедневное вдохновение";
+"Random Quote" = "Случайная цитата";
+"Discover wisdom from your collection" = "Откройте мудрость из вашей коллекции";
+"Favorite" = "Избранное";
+"Share" = "Поделиться";
+"Another" = "Ещё";
+"Another One" = "Ещё одну";
+"No quotes available" = "Цитаты отсутствуют";
+"Add some quotes to your collection first" = "Сначала добавьте цитаты в свою коллекцию";
+
+// Categories
+"Total Categories" = "Всего категорий";
+"Organize your quotes by topics and themes" = "Организуйте цитаты по темам и категориям";
+"Create New Category" = "Создать новую категорию";
+"Add a custom category with icon and color" = "Добавить пользовательскую категорию с иконкой и цветом";
+"New Category" = "Новая категория";
+"Category Name" = "Название категории";
+"Icon" = "Иконка";
+"Color" = "Цвет";
+"Preview" = "Предпросмотр";
+
+// Stats
+"Total Quotes" = "Всего цитат";
+"This Month" = "В этом месяце";
+"Achievements" = "Достижения";
+"No achievements yet" = "Пока нет достижений";
+"Start adding quotes to unlock achievements" = "Начните добавлять цитаты, чтобы разблокировать достижения";
+"View All Achievements" = "Показать все достижения";
+"Category Distribution" = "Распределение по категориям";
+"No category data yet" = "Пока нет данных по категориям";
+"Add quotes to see category distribution" = "Добавьте цитаты, чтобы увидеть распределение по категориям";
+
+// Favorites
+"favorites" = "избранных";
+"No favorites yet" = "Пока нет избранных";
+"Mark quotes as favorites to see them here" = "Отмечайте цитаты как избранные, чтобы видеть их здесь";
+"Browse Library" = "Просмотреть библиотеку";
+"Showing %d favorites" = "Показано %d избранных";
+"Sort" = "Сортировка";
+"Date Added" = "Дата добавления";
+"Author" = "Автор";
+"Category" = "Категория";
+
+// Search
+"Search by quote, author, tags..." = "Поиск по цитате, автору, тегам...";
+"Search for quotes" = "Поиск цитат";
+"Enter text to search by quote content, author, or tags" = "Введите текст для поиска по содержанию цитаты, автору или тегам";
+"No results found" = "Ничего не найдено";
+"Try different search terms or filters" = "Попробуйте другие поисковые запросы или фильтры";
+"Show all quotes" = "Показать все цитаты";
+"results" = "результатов";
