@@ -11,6 +11,7 @@ struct AddEditQuoteView: View {
     @State private var tagInput: String = ""
     @State private var isFavorite: Bool = false
     @State private var showingCategoryPicker = false
+    @State private var showingNewCategorySheet = false
     
     private let isEditing: Bool
     private let editingQuote: Quote?
@@ -134,6 +135,7 @@ struct AddEditQuoteView: View {
                         
                         Button(action: {
                             // Create new category action
+                            showingNewCategorySheet = true
                         }) {
                             HStack {
                                 Image(systemName: "plus")
@@ -255,6 +257,14 @@ struct AddEditQuoteView: View {
                     categories: viewModel.categories,
                     selectedCategories: $selectedCategories
                 )
+            }
+            .sheet(isPresented: $showingNewCategorySheet) {
+                CategoryFormView(viewModel: viewModel, onSave: { category in
+                    // Auto-select newly created category
+                    if !selectedCategories.contains(category.name) {
+                        selectedCategories.append(category.name)
+                    }
+                })
             }
         }
     }

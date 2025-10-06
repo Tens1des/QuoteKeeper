@@ -51,12 +51,17 @@ class QuoteViewModel: ObservableObject {
     // MARK: - Default Data Setup
     
     private func setupDefaultData() {
-        // Only setup default categories, no quotes or achievements
+        // Setup default categories
         if categories.isEmpty {
             setupDefaultCategories()
         }
+
+        // Provide locked achievements by default so users can see goals
+        if achievements.isEmpty {
+            setupDefaultAchievements()
+        }
         
-        // Don't setup default quotes or achievements - let user start fresh
+        // Do not create default quotes – user starts with an empty library
         saveData()
     }
     
@@ -169,7 +174,79 @@ class QuoteViewModel: ObservableObject {
             Achievement(
                 title: "First Steps",
                 description: "Add your first quote to the collection",
+                iconName: "pencil",
+                goal: 1,
+                progress: 0,
+                isUnlocked: false
+            ),
+            Achievement(
+                title: "Collector",
+                description: "Save 50 quotes to your library",
+                iconName: "books.vertical.fill",
+                goal: 50,
+                progress: 0,
+                isUnlocked: false
+            ),
+            Achievement(
+                title: "Wisdom Keeper",
+                description: "Reach 200 saved quotes",
+                iconName: "text.quote",
+                goal: 200,
+                progress: 0,
+                isUnlocked: false
+            ),
+            Achievement(
+                title: "Favorite Mark",
+                description: "Mark a quote as favorite",
                 iconName: "star.fill",
+                goal: 1,
+                progress: 0,
+                isUnlocked: false
+            ),
+            Achievement(
+                title: "Random Explorer",
+                description: "Use Random 10 times",
+                iconName: "bolt.fill",
+                goal: 10,
+                progress: 0,
+                isUnlocked: false
+            ),
+            Achievement(
+                title: "Organizer",
+                description: "Create 5 categories",
+                iconName: "square.grid.2x2",
+                goal: 5,
+                progress: 0,
+                isUnlocked: false
+            ),
+            Achievement(
+                title: "Tag Master",
+                description: "Add tags to 20 quotes",
+                iconName: "tag.fill",
+                goal: 20,
+                progress: 0,
+                isUnlocked: false
+            ),
+            Achievement(
+                title: "Nostalgia",
+                description: "Browse quotes by recent additions",
+                iconName: "clock",
+                goal: 1,
+                progress: 0,
+                isUnlocked: false
+            ),
+            Achievement(
+                title: "Style Setter",
+                description: "Change theme or text size",
+                iconName: "paintbrush.fill",
+                goal: 1,
+                progress: 0,
+                isUnlocked: false
+            ),
+            Achievement(
+                title: "Pinned Gem",
+                description: "Pin a favorite quote",
+                iconName: "pin.fill",
                 goal: 1,
                 progress: 0,
                 isUnlocked: false
@@ -183,26 +260,10 @@ class QuoteViewModel: ObservableObject {
                 isUnlocked: false
             ),
             Achievement(
-                title: "Century Club",
-                description: "Collect 100+ quotes in your library",
-                iconName: "books.vertical.fill",
-                goal: 100,
-                progress: 0,
-                isUnlocked: false
-            ),
-            Achievement(
-                title: "Diversity Master",
-                description: "Create quotes in 10+ categories",
-                iconName: "square.grid.3x3.fill",
+                title: "Daily Opener",
+                description: "Open the app on 10 different days",
+                iconName: "sun.max.fill",
                 goal: 10,
-                progress: 0,
-                isUnlocked: false
-            ),
-            Achievement(
-                title: "Social Butterfly",
-                description: "Share 50 quotes with friends",
-                iconName: "square.and.arrow.up",
-                goal: 50,
                 progress: 0,
                 isUnlocked: false
             )

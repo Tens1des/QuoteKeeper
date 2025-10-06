@@ -189,6 +189,7 @@ struct CategoryCard: View {
 struct CategoryFormView: View {
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var viewModel: QuoteViewModel
+    var onSave: ((Category) -> Void)? = nil
     
     @State private var name: String = ""
     @State private var iconName: String = "book.fill"
@@ -210,10 +211,11 @@ struct CategoryFormView: View {
     ]
     
     // For new category
-    init(viewModel: QuoteViewModel) {
+    init(viewModel: QuoteViewModel, onSave: ((Category) -> Void)? = nil) {
         self.viewModel = viewModel
         self.isEditing = false
         self.editingCategory = nil
+        self.onSave = onSave
     }
     
     // For editing existing category
@@ -348,6 +350,7 @@ struct CategoryFormView: View {
             updatedCategory.colorName = colorName
             
             viewModel.updateCategory(updatedCategory)
+            onSave?(updatedCategory)
         } else {
             // Create new category
             let newCategory = Category(
@@ -357,6 +360,7 @@ struct CategoryFormView: View {
             )
             
             viewModel.addCategory(newCategory)
+            onSave?(newCategory)
         }
         
         dismiss()
