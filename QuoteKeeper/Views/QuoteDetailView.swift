@@ -6,7 +6,6 @@ struct QuoteDetailView: View {
     @State private var quote: Quote
     @State private var showingEditSheet = false
     @State private var showingDeleteAlert = false
-    @State private var showingSimilarQuotes = false
     
     init(quote: Quote, viewModel: QuoteViewModel) {
         self.viewModel = viewModel
@@ -149,13 +148,6 @@ struct QuoteDetailView: View {
                                 showingEditSheet = true
                             }
                             
-                            ActionButton(
-                                title: "Share",
-                                icon: "square.and.arrow.up",
-                                color: .blue
-                            ) {
-                                // Share action
-                            }
                         }
                         
                         // Secondary actions
@@ -179,50 +171,6 @@ struct QuoteDetailView: View {
                     }
                     .padding(.vertical)
                     
-                    // Similar quotes section
-                    VStack(alignment: .leading, spacing: 12) {
-                        Button(action: {
-                            showingSimilarQuotes.toggle()
-                        }) {
-                            HStack {
-                                Text("Similar Quotes (3)")
-                                    .font(.headline)
-                                
-                                Spacer()
-                                
-                                Image(systemName: showingSimilarQuotes ? "chevron.up" : "chevron.down")
-                                    .foregroundColor(.gray)
-                            }
-                        }
-                        
-                        if showingSimilarQuotes {
-                            // This would normally show similar quotes based on categories or tags
-                            // For demo, we'll just show a couple of sample quotes
-                            ForEach(viewModel.quotes.filter { 
-                                $0.id != quote.id && 
-                                !Set($0.categories).isDisjoint(with: Set(quote.categories))
-                            }.prefix(3)) { similarQuote in
-                                VStack(alignment: .leading, spacing: 8) {
-                                    Text(similarQuote.text)
-                                        .font(.subheadline)
-                                        .lineLimit(2)
-                                    
-                                    if !similarQuote.author.isEmpty {
-                                        Text("— \(similarQuote.author)")
-                                            .font(.caption)
-                                            .foregroundColor(.secondary)
-                                    }
-                                    
-                                    Divider()
-                                }
-                                .padding(.vertical, 4)
-                            }
-                        }
-                    }
-                    .padding()
-                    .background(Color(.systemBackground))
-                    .cornerRadius(16)
-                    .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 5)
                 }
                 .padding()
             }

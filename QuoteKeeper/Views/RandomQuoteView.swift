@@ -130,16 +130,6 @@ struct RandomQuoteView: View {
                                     Spacer()
                                     
                                     Button(action: {
-                                        // Share action
-                                    }) {
-                                        Label("Share", systemImage: "square.and.arrow.up")
-                                            .font(.subheadline)
-                                            .foregroundColor(.gray)
-                                    }
-                                    
-                                    Spacer()
-                                    
-                                    Button(action: {
                                         loadRandomQuote()
                                     }) {
                                         Label("Another", systemImage: "arrow.clockwise")

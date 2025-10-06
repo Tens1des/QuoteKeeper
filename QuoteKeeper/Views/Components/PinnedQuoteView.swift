@@ -6,156 +6,74 @@ struct PinnedQuoteView: View {
     var onTap: () -> Void
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            // Header
+        VStack(alignment: .leading, spacing: 20) {
+            // Header with PINNED and bookmark
             HStack {
-                Image(systemName: "bolt.fill")
-                    .foregroundColor(.white)
-                Text("Daily Inspiration")
-                    .font(.subheadline)
+                Text("PINNED")
+                    .font(.caption)
                     .fontWeight(.medium)
                     .foregroundColor(.white)
                 
                 Spacer()
+                
+                Image(systemName: "bookmark.fill")
+                    .foregroundColor(.white)
+                    .font(.title3)
             }
-            .padding(.horizontal, 16)
-            .padding(.vertical, 8)
-            .background(Color.white.opacity(0.2))
-            .cornerRadius(20)
             
-            // Title
-            Text("Random Quote")
-                .font(.title)
+            // Quote text
+            Text("\"\(quote.text)\"")
+                .font(.title2)
                 .fontWeight(.bold)
                 .foregroundColor(.white)
+                .multilineTextAlignment(.leading)
+                .fixedSize(horizontal: false, vertical: true)
             
-            Text("Discover wisdom from your collection")
+            // Author
+            Text("- \(quote.author)")
                 .font(.subheadline)
-                .foregroundColor(.white.opacity(0.8))
+                .fontWeight(.medium)
+                .foregroundColor(.white)
             
-            // Quote card
-            VStack(alignment: .leading, spacing: 16) {
-                // Quote marks
-                HStack {
-                    Text("❝")
-                        .font(.system(size: 40))
-                        .foregroundColor(.pink.opacity(0.5))
-                    Spacer()
-                }
-                
-                // Quote text
-                Text("\"\(quote.text)\"")
-                    .font(.title3)
-                    .fontWeight(.medium)
-                    .foregroundColor(.primary)
-                    .fixedSize(horizontal: false, vertical: true)
-                
-                // Author
-                Text(quote.author)
-                    .font(.headline)
-                    .foregroundColor(.secondary)
-                
-                // Tags
-                HStack {
-                    ForEach(quote.categories.prefix(2), id: \.self) { category in
-                        CategoryChip(categoryName: category, viewModel: viewModel)
-                    }
-                    
-                    ForEach(quote.tags.prefix(2), id: \.self) { tag in
-                        TagChip(tag: tag)
-                    }
-                }
-                
-                Divider()
-                
-                // Actions
-                HStack {
-                    Button(action: {
-                        viewModel.toggleFavorite(quote)
-                    }) {
-                        Label("Favorite", systemImage: quote.isFavorite ? "star.fill" : "star")
-                            .font(.subheadline)
-                            .foregroundColor(quote.isFavorite ? .yellow : .gray)
-                    }
-                    
-                    Spacer()
-                    
-                    Button(action: {
-                        // Share action
-                    }) {
-                        Label("Share", systemImage: "square.and.arrow.up")
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
-                    }
-                    
-                    Spacer()
-                    
-                    Button(action: {
-                        // Show another random quote
-                    }) {
-                        Label("Another", systemImage: "arrow.clockwise")
-                            .font(.subheadline)
-                            .foregroundColor(.white)
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 8)
-                            .background(Color.purple)
-                            .cornerRadius(8)
-                    }
-                }
-            }
-            .padding()
-            .background(Color(.systemBackground))
-            .cornerRadius(16)
-            .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 5)
-            
-            // Bottom buttons
-            HStack {
-                Spacer()
-                
-                Button(action: {
-                    // Show another random quote
-                }) {
-                    HStack {
-                        Image(systemName: "shuffle")
-                        Text("Another One")
-                            .fontWeight(.medium)
-                    }
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 12)
-                    .background(Color.white.opacity(0.2))
-                    .cornerRadius(30)
-                }
-                
-                Spacer()
-                
-                Button(action: {
-                    // Close random quote view
-                }) {
-                    Image(systemName: "xmark")
+            // Tags
+            HStack(spacing: 8) {
+                ForEach(quote.categories.prefix(2), id: \.self) { category in
+                    Text(category)
+                        .font(.caption)
+                        .fontWeight(.medium)
                         .foregroundColor(.white)
-                        .padding(12)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
                         .background(Color.white.opacity(0.2))
-                        .clipShape(Circle())
+                        .cornerRadius(12)
+                }
+                
+                ForEach(quote.tags.prefix(2), id: \.self) { tag in
+                    Text(tag)
+                        .font(.caption)
+                        .fontWeight(.medium)
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
+                        .background(Color.white.opacity(0.2))
+                        .cornerRadius(12)
                 }
             }
-            
-            // Counter
-            Text("Quote \(viewModel.favoriteQuotes.firstIndex(where: { $0.id == quote.id })?.advanced(by: 1) ?? 0) of \(viewModel.favoriteQuotes.count) in your collection")
-                .font(.caption)
-                .foregroundColor(.white.opacity(0.7))
-                .frame(maxWidth: .infinity, alignment: .center)
         }
-        .padding()
-        .frame(maxWidth: .infinity)
+        .padding(20)
+        .frame(maxWidth: .infinity, alignment: .leading)
         .background(
             LinearGradient(
-                gradient: Gradient(colors: [Color.blue, Color.purple.opacity(0.8)]),
+                gradient: Gradient(colors: [
+                    Color(red: 0.4, green: 0.2, blue: 0.8), // Dark purple
+                    Color(red: 0.6, green: 0.3, blue: 0.9)  // Lighter purple
+                ]),
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
         )
         .cornerRadius(20)
+        .shadow(color: Color.purple.opacity(0.3), radius: 15, x: 0, y: 8)
         .onTapGesture {
             onTap()
         }

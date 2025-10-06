@@ -34,15 +34,6 @@ struct ProfileView: View {
                                 .fontWeight(.bold)
                         }
                         
-                        if viewModel.userProfile.email.isEmpty {
-                            Text("Tap to set your email".localized)
-                                .font(.subheadline)
-                                .foregroundColor(.secondary)
-                        } else {
-                            Text(viewModel.userProfile.email)
-                                .font(.subheadline)
-                                .foregroundColor(.secondary)
-                        }
                         
                         // Edit profile button
                         Button(action: {
@@ -194,7 +185,55 @@ struct ProfileView: View {
                         .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
                         .padding(.horizontal)
                         
-                        
+                        // Text size
+                        VStack(alignment: .leading, spacing: 12) {
+                            HStack {
+                                Image(systemName: "textformat.size")
+                                    .font(.headline)
+                                    .foregroundColor(.green)
+                                    .frame(width: 30, height: 30)
+                                    .background(Color.green.opacity(0.1))
+                                    .clipShape(Circle())
+                                
+                                Text("Text Size".localized)
+                                    .font(.headline)
+                                
+                                Spacer()
+                            }
+                            
+                            Text("Adjust quote text size".localized)
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                            
+                            // Text size buttons
+                            HStack(spacing: 10) {
+                                TextSizeButton(
+                                    title: "Small".localized,
+                                    isSelected: fontManager.currentTextSize == .small
+                                ) {
+                                    updateTextSize(.small)
+                                }
+                                
+                                TextSizeButton(
+                                    title: "Standard".localized,
+                                    isSelected: fontManager.currentTextSize == .standard
+                                ) {
+                                    updateTextSize(.standard)
+                                }
+                                
+                                TextSizeButton(
+                                    title: "Large".localized,
+                                    isSelected: fontManager.currentTextSize == .large
+                                ) {
+                                    updateTextSize(.large)
+                                }
+                            }
+                        }
+                        .padding()
+                        .background(Color(.systemBackground))
+                        .cornerRadius(12)
+                        .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
+                        .padding(.horizontal)
                         
                         // Reset data button (for testing)
                         Button(action: {
@@ -247,6 +286,13 @@ struct ProfileView: View {
         
         // Force UI refresh
         refreshID = UUID()
+    }
+    
+    private func updateTextSize(_ textSize: UserProfile.TextSize) {
+        var updatedProfile = viewModel.userProfile
+        updatedProfile.textSize = textSize
+        viewModel.updateUserProfile(updatedProfile)
+        fontManager.setTextSize(textSize)
     }
     
     
@@ -365,13 +411,36 @@ struct LanguageButton: View {
     }
 }
 
+struct TextSizeButton: View {
+    let title: String
+    let isSelected: Bool
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: {
+            withAnimation(.easeInOut(duration: 0.2)) {
+                action()
+            }
+        }) {
+            Text(title)
+                .font(.subheadline)
+                .fontWeight(isSelected ? .semibold : .regular)
+                .foregroundColor(isSelected ? .white : .primary)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 8)
+                .background(isSelected ? Color.green : Color.gray.opacity(0.1))
+                .cornerRadius(8)
+                .frame(maxWidth: .infinity)
+        }
+    }
+}
+
 
 struct EditProfileView: View {
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var viewModel: QuoteViewModel
     
     @State private var name: String
-    @State private var email: String
     @State private var avatarIconName: String
     
     private let availableAvatars = [
@@ -384,7 +453,6 @@ struct EditProfileView: View {
     init(viewModel: QuoteViewModel) {
         self.viewModel = viewModel
         _name = State(initialValue: viewModel.userProfile.name)
-        _email = State(initialValue: viewModel.userProfile.email)
         _avatarIconName = State(initialValue: viewModel.userProfile.avatarIconName)
     }
     
@@ -393,7 +461,6 @@ struct EditProfileView: View {
             Form {
                 Section(header: Text("Profile Information")) {
                     TextField("Name", text: $name)
-                    TextField("Email", text: $email)
                 }
                 
                 Section(header: Text("Avatar")) {
@@ -441,7 +508,6 @@ struct EditProfileView: View {
     private func saveProfile() {
         var updatedProfile = viewModel.userProfile
         updatedProfile.name = name.trimmingCharacters(in: .whitespacesAndNewlines)
-        updatedProfile.email = email.trimmingCharacters(in: .whitespacesAndNewlines)
         updatedProfile.avatarIconName = avatarIconName
         
         viewModel.updateUserProfile(updatedProfile)
