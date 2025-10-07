@@ -458,32 +458,53 @@ struct EditProfileView: View {
     
     var body: some View {
         NavigationView {
-            Form {
-                Section(header: Text("Profile Information")) {
-                    TextField("Name", text: $name)
-                }
-                
-                Section(header: Text("Avatar")) {
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))], spacing: 16) {
-                        ForEach(availableAvatars, id: \.self) { icon in
-                            Button(action: {
-                                avatarIconName = icon
-                            }) {
-                                Image(systemName: icon)
-                                    .font(.title)
-                                    .foregroundColor(avatarIconName == icon ? .white : .purple)
-                                    .frame(width: 50, height: 50)
-                                    .background(avatarIconName == icon ? Color.purple : Color.clear)
-                                    .clipShape(Circle())
-                                    .overlay(
-                                        Circle()
-                                            .stroke(Color.purple, lineWidth: avatarIconName == icon ? 0 : 2)
-                                    )
+            ScrollView {
+                VStack(spacing: 20) {
+                    // Profile Information
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("Profile Information")
+                            .font(.headline)
+                            .foregroundColor(.secondary)
+                            .padding(.horizontal)
+                        
+                        TextField("Name", text: $name)
+                            .padding()
+                            .background(Color(.systemGray6))
+                            .cornerRadius(10)
+                            .padding(.horizontal)
+                    }
+                    
+                    // Avatar Selection
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("Avatar")
+                            .font(.headline)
+                            .foregroundColor(.secondary)
+                            .padding(.horizontal)
+                        
+                        LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))], spacing: 16) {
+                            ForEach(availableAvatars, id: \.self) { icon in
+                                Button(action: {
+                                    avatarIconName = icon
+                                }) {
+                                    Image(systemName: icon)
+                                        .font(.title)
+                                        .foregroundColor(avatarIconName == icon ? .white : .purple)
+                                        .frame(width: 50, height: 50)
+                                        .background(avatarIconName == icon ? Color.purple : Color.clear)
+                                        .clipShape(Circle())
+                                        .overlay(
+                                            Circle()
+                                                .stroke(Color.purple, lineWidth: avatarIconName == icon ? 0 : 2)
+                                        )
+                                }
+                                .buttonStyle(PlainButtonStyle())
                             }
                         }
+                        .padding(.horizontal)
+                        .padding(.bottom)
                     }
-                    .padding(.vertical, 8)
                 }
+                .padding(.vertical)
             }
             .navigationTitle("Edit Profile")
             .toolbar {
