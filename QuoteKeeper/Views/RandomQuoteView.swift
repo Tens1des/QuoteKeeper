@@ -41,7 +41,7 @@ struct RandomQuoteView: View {
                             HStack {
                                 Image(systemName: "bolt.fill")
                                     .foregroundColor(.white)
-                                Text("Daily Inspiration")
+                                Text("Daily Inspiration".localized)
                                     .font(.subheadline)
                                     .fontWeight(.medium)
                                     .foregroundColor(.white)
@@ -54,12 +54,12 @@ struct RandomQuoteView: View {
                             .cornerRadius(20)
                             
                             // Title
-                            Text("Random Quote")
+                            Text("Random Quote".localized)
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
                             
-                            Text("Discover wisdom from your collection")
+                            Text("Discover wisdom from your collection".localized)
                                 .font(.subheadline)
                                 .foregroundColor(.white.opacity(0.8))
                         }
@@ -122,7 +122,7 @@ struct RandomQuoteView: View {
                                             }
                                         }
                                     }) {
-                                        Label("Favorite", systemImage: currentQuote?.isFavorite ?? false ? "star.fill" : "star")
+                                        Label("Favorite".localized, systemImage: currentQuote?.isFavorite ?? false ? "star.fill" : "star")
                                             .font(.subheadline)
                                             .foregroundColor(currentQuote?.isFavorite ?? false ? .yellow : .gray)
                                     }
@@ -132,7 +132,7 @@ struct RandomQuoteView: View {
                                     Button(action: {
                                         loadRandomQuote()
                                     }) {
-                                        Label("Another", systemImage: "arrow.clockwise")
+                                        Label("Another".localized, systemImage: "arrow.clockwise")
                                             .font(.subheadline)
                                             .foregroundColor(.white)
                                             .padding(.horizontal, 16)
@@ -157,11 +157,11 @@ struct RandomQuoteView: View {
                                     .font(.system(size: 50))
                                     .foregroundColor(.white.opacity(0.7))
                                 
-                                Text("No quotes available")
+                                Text("No quotes available".localized)
                                     .font(.title3)
                                     .foregroundColor(.white)
                                 
-                                Text("Add some quotes to your collection first")
+                                Text("Add some quotes to your collection first".localized)
                                     .font(.subheadline)
                                     .foregroundColor(.white.opacity(0.7))
                                     .multilineTextAlignment(.center)
@@ -169,7 +169,7 @@ struct RandomQuoteView: View {
                                 Button(action: {
                                     dismiss()
                                 }) {
-                                    Text("Add Your First Quote")
+                                    Text("Add Your First Quote".localized)
                                         .fontWeight(.semibold)
                                         .foregroundColor(.purple)
                                         .padding()
@@ -191,7 +191,7 @@ struct RandomQuoteView: View {
                                 }) {
                                     HStack {
                                         Image(systemName: "shuffle")
-                                        Text("Another One")
+                                        Text("Another One".localized)
                                             .fontWeight(.medium)
                                     }
                                     .foregroundColor(.white)

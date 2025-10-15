@@ -9,7 +9,9 @@ struct FavoritesView: View {
     @State private var showingSortOptions = false
     @State private var sortOption: SortOption = .dateAdded
     
-    private let filterOptions = ["All", "Life", "Work", "Love"]
+    private var filterOptions: [String] {
+        ["All".localized] + viewModel.categories.map { $0.name }
+    }
     
     enum SortOption: String, CaseIterable {
         case dateAdded = "Date Added"
@@ -22,7 +24,7 @@ struct FavoritesView: View {
             VStack(spacing: 0) {
                 // Header
                 HStack {
-                    Text("Favorites")
+                    Text("Favorites".localized)
                         .font(.largeTitle)
                         .fontWeight(.bold)
                     
@@ -58,7 +60,7 @@ struct FavoritesView: View {
                 
                 // Count and sort
                 HStack {
-                    Text("Showing \(filteredFavorites.count) favorites")
+                    Text("Showing".localized + " \(filteredFavorites.count) " + "favorites".localized)
                         .font(.caption)
                         .foregroundColor(.secondary)
                     
@@ -71,7 +73,7 @@ struct FavoritesView: View {
                             Image(systemName: "arrow.up.arrow.down")
                                 .font(.caption)
                             
-                            Text("Sort")
+                            Text("Sort".localized)
                                 .font(.caption)
                         }
                         .padding(.horizontal, 12)
@@ -91,11 +93,11 @@ struct FavoritesView: View {
                             .font(.system(size: 60))
                             .foregroundColor(.yellow.opacity(0.5))
                         
-                        Text("No favorites yet")
+                        Text("No favorites yet".localized)
                             .font(.title2)
                             .fontWeight(.semibold)
                         
-                        Text("Mark quotes as favorites to see them here")
+                        Text("Mark quotes as favorites to see them here".localized)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                             .multilineTextAlignment(.center)
@@ -103,7 +105,7 @@ struct FavoritesView: View {
                         Button(action: {
                             // Navigate to library
                         }) {
-                            Text("Browse Library")
+                            Text("Browse Library".localized)
                                 .font(.headline)
                                 .foregroundColor(.white)
                                 .padding(.horizontal, 20)

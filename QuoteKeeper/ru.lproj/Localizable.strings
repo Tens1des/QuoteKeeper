@@ -114,3 +114,41 @@
 "Try different search terms or filters" = "Попробуйте другие поисковые запросы или фильтры";
 "Show all quotes" = "Показать все цитаты";
 "results" = "результатов";
+
+// Quote Actions
+"Add to Favorites" = "Добавить в избранное";
+"Remove from Favorites" = "Убрать из избранного";
+"Pin Quote" = "Закрепить цитату";
+"Unpin Quote" = "Открепить цитату";
+"Delete" = "Удалить";
+"Edit" = "Редактировать";
+"Unpin" = "Открепить";
+
+// Alerts
+"Delete Quote" = "Удалить цитату";
+"Are you sure you want to delete this quote? This action cannot be undone." = "Вы уверены, что хотите удалить эту цитату? Это действие нельзя отменить.";
+"Delete Category" = "Удалить категорию";
+"Are you sure you want to delete this category? Quotes will remain but the category will be removed from them." = "Вы уверены, что хотите удалить эту категорию? Цитаты останутся, но категория будет удалена из них.";
+
+// Formatting
+"Select text to apply formatting" = "Выделите текст для форматирования";
+"/ 1000" = "/ 1000";
+
+// Empty States
+"No quotes yet" = "Пока нет цитат";
+"Add quotes to see them organized by categories" = "Добавьте цитаты, чтобы увидеть их организованными по категориям";
+
+// Stats
+"Unlocked:" = "Разблокировано:";
+"Progress:" = "Прогресс:";
+
+// Misc
+"All" = "Все";
+"Added" = "Добавлено";
+"quotes" = "цитат";
+"Done" = "Готово";
+"Select Categories" = "Выберите категории";
+"PINNED" = "ЗАКРЕПЛЕНО";
+"Showing" = "Показано";
+"Category Details" = "Детали категории";
+"Edit Category" = "Редактировать категорию";

@@ -13,7 +13,7 @@ struct CategoriesView: View {
                 VStack(spacing: 16) {
                     // Header card
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("Total Categories")
+                        Text("Total Categories".localized)
                             .font(.headline)
                             .foregroundColor(.white)
                         
@@ -29,7 +29,7 @@ struct CategoriesView: View {
                                 .foregroundColor(.white)
                         }
                         
-                        Text("Organize your quotes by topics and themes")
+                        Text("Organize your quotes by topics and themes".localized)
                             .font(.subheadline)
                             .foregroundColor(.white.opacity(0.8))
                     }
@@ -51,7 +51,7 @@ struct CategoriesView: View {
                                 .background(Color.blue.opacity(0.1))
                                 .clipShape(Circle())
                             
-                            Text("Create New Category")
+                            Text("Create New Category".localized)
                                 .font(.headline)
                                 .foregroundColor(.primary)
                             
@@ -90,11 +90,11 @@ struct CategoriesView: View {
                                     .font(.system(size: 40))
                                     .foregroundColor(.gray.opacity(0.5))
                                 
-                                Text("No quotes yet")
+                                Text("No quotes yet".localized)
                                     .font(.headline)
                                     .foregroundColor(.secondary)
                                 
-                                Text("Add quotes to see them organized by categories")
+                                Text("Add quotes to see them organized by categories".localized)
                                     .font(.subheadline)
                                     .foregroundColor(.secondary)
                                     .multilineTextAlignment(.center)
@@ -233,11 +233,11 @@ struct CategoryFormView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Category Details")) {
-                    TextField("Category Name", text: $name)
+                Section(header: Text("Category Details".localized)) {
+                    TextField("Category Name".localized, text: $name)
                 }
                 
-                Section(header: Text("Icon")) {
+                Section(header: Text("Icon".localized)) {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))], spacing: 16) {
                         ForEach(availableIcons, id: \.self) { icon in
                             Button(action: {
@@ -262,7 +262,7 @@ struct CategoryFormView: View {
                     }
                 }
                 
-                Section(header: Text("Color")) {
+                Section(header: Text("Color".localized)) {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))], spacing: 16) {
                         ForEach(availableColors, id: \.self) { color in
                             Button(action: {
@@ -282,7 +282,7 @@ struct CategoryFormView: View {
                     }
                 }
                 
-                Section(header: Text("Preview")) {
+                Section(header: Text("Preview".localized)) {
                     HStack {
                         Image(systemName: iconName)
                             .font(.title2)
@@ -291,23 +291,23 @@ struct CategoryFormView: View {
                             .background(getColor(for: colorName))
                             .clipShape(Circle())
                         
-                        Text(name.isEmpty ? "Category Name" : name)
+                        Text(name.isEmpty ? "Category Name".localized : name)
                             .font(.headline)
                             .foregroundColor(.primary)
                     }
                     .padding(.vertical, 8)
                 }
             }
-            .navigationTitle(isEditing ? "Edit Category" : "New Category")
+            .navigationTitle(isEditing ? "Edit Category".localized : "New Category".localized)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
+                    Button("Cancel".localized) {
                         dismiss()
                     }
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Save") {
+                    Button("Save".localized) {
                         saveCategory()
                     }
                     .disabled(name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)

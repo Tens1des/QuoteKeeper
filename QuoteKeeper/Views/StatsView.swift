@@ -41,7 +41,7 @@ struct StatsView: View {
     
     private var headerView: some View {
         HStack {
-            Text("Statistics")
+            Text("Statistics".localized)
                 .font(.largeTitle)
                 .fontWeight(.bold)
             
@@ -61,28 +61,28 @@ struct StatsView: View {
     private var statsCardsView: some View {
         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
             StatCard(
-                title: "Total Quotes",
+                title: "Total Quotes".localized,
                 value: "\(viewModel.totalQuotesCount)",
                 icon: "doc.text.fill",
                 color: .blue
             )
             
             StatCard(
-                title: "Favorites",
+                title: "Favorites".localized,
                 value: "\(viewModel.favoritesCount)",
                 icon: "star.fill",
                 color: .yellow
             )
             
             StatCard(
-                title: "Categories",
+                title: "Categories".localized,
                 value: "\(viewModel.categoriesCount)",
                 icon: "folder.fill",
                 color: .blue
             )
             
             StatCard(
-                title: "This Month",
+                title: "This Month".localized,
                 value: "\(viewModel.thisMonthQuotesCount)",
                 icon: "calendar",
                 color: .green
@@ -94,7 +94,7 @@ struct StatsView: View {
     private var achievementsSectionView: some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack {
-                Text("Achievements")
+                Text("Achievements".localized)
                     .font(.title2)
                     .fontWeight(.bold)
                 
@@ -133,11 +133,11 @@ struct StatsView: View {
                 .font(.system(size: 40))
                 .foregroundColor(.gray.opacity(0.5))
             
-            Text("No achievements yet")
+            Text("No achievements yet".localized)
                 .font(.headline)
                 .foregroundColor(.secondary)
             
-            Text("Start adding quotes to unlock achievements")
+            Text("Start adding quotes to unlock achievements".localized)
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
@@ -152,7 +152,7 @@ struct StatsView: View {
             showingAllAchievements = true
         }) {
             HStack {
-                Text("View All Achievements")
+                Text("View All Achievements".localized)
                     .font(.headline)
                     .foregroundColor(.purple)
                 
@@ -168,7 +168,7 @@ struct StatsView: View {
     
     private var categoryDistributionView: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("Category Distribution")
+            Text("Category Distribution".localized)
                 .font(.title2)
                 .fontWeight(.bold)
                 .padding(.horizontal)
@@ -198,11 +198,11 @@ struct StatsView: View {
                 .font(.system(size: 30))
                 .foregroundColor(.gray.opacity(0.5))
             
-            Text("No category data yet")
+            Text("No category data yet".localized)
                 .font(.headline)
                 .foregroundColor(.secondary)
             
-            Text("Add quotes to see category distribution")
+            Text("Add quotes to see category distribution".localized)
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)

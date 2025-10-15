@@ -43,7 +43,7 @@ struct AddEditQuoteView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     // Quote Text
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("Quote Text")
+                        Text("Quote Text".localized)
                             .font(.headline)
                             .foregroundColor(.secondary)
                         
@@ -64,7 +64,7 @@ struct AddEditQuoteView: View {
                             
                             Spacer()
                             
-                            Text("Select text to apply formatting")
+                            Text("Select text to apply formatting".localized)
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }
@@ -91,11 +91,11 @@ struct AddEditQuoteView: View {
                     
                     // Author
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("Author")
+                        Text("Author".localized)
                             .font(.headline)
                             .foregroundColor(.secondary)
                         
-                        TextField("Author name (optional)", text: $author)
+                        TextField("Author name (optional)".localized, text: $author)
                             .padding()
                             .background(Color(.systemGray6))
                             .cornerRadius(8)
@@ -103,7 +103,7 @@ struct AddEditQuoteView: View {
                     
                     // Category
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("Category")
+                        Text("Category".localized)
                             .font(.headline)
                             .foregroundColor(.secondary)
                         
@@ -112,7 +112,7 @@ struct AddEditQuoteView: View {
                         }) {
                             HStack {
                                 if selectedCategories.isEmpty {
-                                    Text("Select category...")
+                                    Text("Select category...".localized)
                                         .foregroundColor(.gray)
                                 } else {
                                     ScrollView(.horizontal, showsIndicators: false) {
@@ -139,7 +139,7 @@ struct AddEditQuoteView: View {
                         }) {
                             HStack {
                                 Image(systemName: "plus")
-                                Text("Create new category")
+                                Text("Create new category".localized)
                                     .foregroundColor(.purple)
                             }
                             .font(.subheadline)
@@ -149,12 +149,12 @@ struct AddEditQuoteView: View {
                     
                     // Tags
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("Tags")
+                        Text("Tags".localized)
                             .font(.headline)
                             .foregroundColor(.secondary)
                         
                         HStack {
-                            TextField("Add tags...", text: $tagInput)
+                            TextField("Add tags...".localized, text: $tagInput)
                                 .padding()
                                 .background(Color(.systemGray6))
                                 .cornerRadius(8)
@@ -198,7 +198,7 @@ struct AddEditQuoteView: View {
                         
                         // Tag suggestions
                         HStack {
-                            Text("Suggestions:")
+                            Text("Suggestions:".localized)
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                             
@@ -222,7 +222,7 @@ struct AddEditQuoteView: View {
                     
                     // Options
                     VStack(alignment: .leading, spacing: 16) {
-                        Toggle("Mark as favorite", isOn: $isFavorite)
+                        Toggle("Mark as favorite".localized, isOn: $isFavorite)
                             .tint(.yellow)
                         
                         if isEditing {
@@ -235,16 +235,16 @@ struct AddEditQuoteView: View {
                 }
                 .padding()
             }
-            .navigationTitle(isEditing ? "Edit Quote" : "Add Quote")
+            .navigationTitle(isEditing ? "Edit Quote".localized : "Add Quote".localized)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
+                    Button("Cancel".localized) {
                         dismiss()
                     }
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Save") {
+                    Button("Save".localized) {
                         saveQuote()
                     }
                     .disabled(quoteText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
@@ -353,10 +353,10 @@ struct CategoryPickerView: View {
                     }
                 }
             }
-            .navigationTitle("Select Categories")
+            .navigationTitle("Select Categories".localized)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Done") {
+                    Button("Done".localized) {
                         dismiss()
                     }
                 }

@@ -114,3 +114,41 @@
 "Try different search terms or filters" = "Try different search terms or filters";
 "Show all quotes" = "Show all quotes";
 "results" = "results";
+
+// Quote Actions
+"Add to Favorites" = "Add to Favorites";
+"Remove from Favorites" = "Remove from Favorites";
+"Pin Quote" = "Pin Quote";
+"Unpin Quote" = "Unpin Quote";
+"Delete" = "Delete";
+"Edit" = "Edit";
+"Unpin" = "Unpin";
+
+// Alerts
+"Delete Quote" = "Delete Quote";
+"Are you sure you want to delete this quote? This action cannot be undone." = "Are you sure you want to delete this quote? This action cannot be undone.";
+"Delete Category" = "Delete Category";
+"Are you sure you want to delete this category? Quotes will remain but the category will be removed from them." = "Are you sure you want to delete this category? Quotes will remain but the category will be removed from them.";
+
+// Formatting
+"Select text to apply formatting" = "Select text to apply formatting";
+"/ 1000" = "/ 1000";
+
+// Empty States
+"No quotes yet" = "No quotes yet";
+"Add quotes to see them organized by categories" = "Add quotes to see them organized by categories";
+
+// Stats
+"Unlocked:" = "Unlocked:";
+"Progress:" = "Progress:";
+
+// Misc
+"All" = "All";
+"Added" = "Added";
+"quotes" = "quotes";
+"Done" = "Done";
+"Select Categories" = "Select Categories";
+"PINNED" = "PINNED";
+"Showing" = "Showing";
+"Category Details" = "Category Details";
+"Edit Category" = "Edit Category";

@@ -9,7 +9,7 @@ struct PinnedQuoteView: View {
         VStack(alignment: .leading, spacing: 20) {
             // Header with PINNED and bookmark
             HStack {
-                Text("PINNED")
+                Text("PINNED".localized)
                     .font(.caption)
                     .fontWeight(.medium)
                     .foregroundColor(.white)

@@ -148,7 +148,7 @@ struct LibraryView: View {
                 }
                 .padding(.bottom, 100)
             }
-            .navigationTitle("QuoteKeeper")
+            .navigationTitle("QuoteKeeper".localized)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
